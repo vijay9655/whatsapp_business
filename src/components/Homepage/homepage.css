@@ -1,0 +1,44 @@
+#anger{
+    color: rgb(39, 36, 36);
+    font-weight: 900;
+
+}
+#anger1{
+    color: rgb(39, 36, 36);
+    font-weight: 900;
+}
+#btn:hover{
+    font-size: medium;
+    transform: scaleX(1);
+
+}
+#anger:hover{
+    font-size: large;
+    transform: scaleX(10);
+}
+#anger::after {
+    content: '';
+    position: absolute;
+    left: 0px;
+    bottom: -10px;
+    width: 50%;
+    align-items: center;
+    height: 5px;
+    background-color: #FEFEFE;
+    transform-origin: bottom right;
+    transition: transform 0.5s ease;
+    transform: scaleX(0);
+    margin:10% 0% 0% 25% ;
+}
+#anger:hover::after {
+    transform-origin: bottom left;
+    transform: scaleX(1);
+    
+}
+
+
+/* home_content */
+#h3{
+color: gray;
+cursor: pointer;
+}
