@@ -1,0 +1,16 @@
+#mainanger{
+    color:white;
+    
+    font-weight: 900;
+    
+
+}
+@media only screen and (max-width: 325px) { 
+
+}
+#menubar{
+    background-color: black;
+    height: 100vh;
+    color: white;
+    width: 250
+}

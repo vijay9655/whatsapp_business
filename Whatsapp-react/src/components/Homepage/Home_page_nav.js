@@ -1,16 +1,25 @@
 import React,{useState} from 'react'
 import './homepage.css'
 import { Col, Row, Button,Modal,Input,Checkbox, Form} from 'antd';
+import axios from 'axios'
 import 'antd/dist/antd.css';
+import {useHistory} from 'react-router-dom';
+
 import PhoneInput from 'react-phone-input-2'
 import 'react-phone-input-2/lib/style.css'
 import Home_content from './Home_content';
+
+
 
 function Home_page() {
   const [open,setOpen]=useState(false)
   const [sign_up,setSign_up]=useState(false)
   const [sign_in,setSign_in]=useState(false)
   const [showregister,setShowregister]=useState(false)
+  const [Regstatus,setRegstatus]=useState()
+  const [logstatus,setLogstatus]=useState()
+  const history=useHistory()
+
  
  
 
@@ -37,8 +46,31 @@ function Home_page() {
 
 
 
-  const onFinish = (values) => {
-    console.log('Success:', values);
+  
+  const onRegister = (values) => {
+       
+    axios.post('http://localhost:9000/register',values).then((res)=>{
+      console.log(res);
+      setOpen(false)
+      setRegstatus(res)
+
+    })
+  };
+  const onLogin = (values) => {
+    console.log('login:', values);
+    axios.post('http://localhost:9000/login',values).then((res)=>{
+      console.log(res);
+      console.log(res.data.status);
+      if(res.data.status===true){
+     console.log('hloo');
+        history.push("/mainpage")
+      }
+      // setOpen(false)
+      setLogstatus(res)
+
+    })
+
+
   };
 
   const onFinishFailed = (errorInfo) => {
@@ -103,7 +135,7 @@ function Home_page() {
       initialValues={{
         remember: true,
       }}
-      onFinish={onFinish}
+      onFinish={onLogin}
       onFinishFailed={onFinishFailed}
       autoComplete="off"
     >
@@ -132,7 +164,7 @@ function Home_page() {
           },
         ]}
       >
-        <Input.Password style={{width:'250px'}} />
+        <Input.Password maxLength={8} style={{width:'250px'}} />
       </Form.Item>
 
       <Form.Item style={{textAlign:'start'}}
@@ -192,7 +224,7 @@ span: 16,
 initialValues={{
 remember: true,
 }}
-onFinish={onFinish}
+onFinish={onRegister}
 onFinishFailed={onFinishFailed}
 autoComplete="off"
 >
@@ -245,7 +277,7 @@ rules={[
 },
 ]}
 >
-<Input.Password style={{width:'250px'}} />
+<Input.Password maxLength={8} style={{width:'250px'}} />
 </Form.Item>
 <Form.Item style={{textAlign:'center'}}
 name="remember"

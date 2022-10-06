@@ -9,7 +9,11 @@
   "author": "vjay",
   "license": "ISC",
   "dependencies": {
+    "axios": "^0.27.2",
+    "cors": "^2.8.5",
     "express": "^4.18.1",
+    "mongod": "^2.0.0",
+    "mongoose": "^6.6.4",
     "mongoosh": "^0.0.7",
     "nodemon": "^2.0.20"
   }
