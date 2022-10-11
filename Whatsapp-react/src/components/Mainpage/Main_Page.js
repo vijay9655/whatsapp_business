@@ -1,10 +1,13 @@
-import React from 'react'
+import React,{useState} from 'react'
 import Navbar from './Navbar'
 import { Col, Row,Menu} from 'antd';
-
+import Whatsapptemplate from '../Dashboard/Whatsapptemplate'
 import 'antd/dist/antd.css';
 import { AppstoreOutlined, MailOutlined, SettingOutlined } from '@ant-design/icons';
+import Whatsappimagetemp from '../Dashboard/Whatsappimagetemp';
+import Whatsappvideotemp from '../Dashboard/Whatsappvideotemp';
 function Main_Page() {
+const [toggle,setToggle]=useState('')
   function getItem(label, key, icon, children, type) {
     return {
       key,
@@ -16,7 +19,7 @@ function Main_Page() {
   }
   const items = [
     getItem('Dashboard', 'sub1', <MailOutlined />, [
-      getItem('Whatsapp', 'sub11', null, [getItem('Text', '1'), getItem('Image', '2'), getItem('Videos', '3')]),
+      getItem('Whatsapp', 'sub11', null, [getItem('Text', 'text'), getItem('Image', 'image'), getItem('Videos', 'video')]),
       getItem('LinkedIn', 'sub12', null, [getItem('Text', '4'), getItem('Image', '5'),getItem('Videos', '6')]),
   
 
@@ -37,6 +40,7 @@ function Main_Page() {
   ];
   const onClick = (e) => {
     console.log('click ', e);
+    setToggle(e.key)
   };
 
   return (
@@ -62,8 +66,8 @@ function Main_Page() {
       items={items}
     />
     </Col>
-    <Col sm={21} xs={21} md={21} span={5} style={{textAlign:'left',}} >
-    dhgghd
+    <Col sm={21} xs={21} md={21} span={5}>  
+    {toggle==='text'?<Whatsapptemplate/>:toggle==='image'?<Whatsappimagetemp/>:toggle==='video'?<Whatsappvideotemp/>:<Whatsapptemplate/>}
     </Col>
   </Row>
         

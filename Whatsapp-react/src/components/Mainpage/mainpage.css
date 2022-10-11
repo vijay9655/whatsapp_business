@@ -1,8 +1,6 @@
 #mainanger{
-    color:white;
-    
+    color: rgb(39, 36, 36);
     font-weight: 900;
-    
 
 }
 @media only screen and (max-width: 325px) { 
@@ -10,7 +8,29 @@
 }
 #menubar{
     background-color: black;
+    
     height: 100vh;
     color: white;
     width: 250
+}
+.whatsapptemp{
+    width:100%;
+    /* margin:auto; */
+    justify-content:center;
+    background-image: url('/whatsapp2.jpg');
+    background-size: cover;
+    
+    height:100vh
+}
+.whatsapp-body{
+    text-align: left;
+  
+}
+.whatsappimg{
+    background-image:url("/whatsapp4.png");
+   height: 450px;
+   
+    background-size: 80%;
+    background-repeat: no-repeat;
+
 }

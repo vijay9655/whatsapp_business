@@ -53,6 +53,14 @@ function Home_page() {
       console.log(res);
       setOpen(false)
       setRegstatus(res)
+      if(res.data.status===true){
+        
+           history.push("/mainpage")
+           alert('Register successfully')
+         }
+         else{
+           alert('Register failed')
+         }
 
     })
   };
@@ -60,10 +68,15 @@ function Home_page() {
     console.log('login:', values);
     axios.post('http://localhost:9000/login',values).then((res)=>{
       console.log(res);
+      setOpen(false)
       console.log(res.data.status);
       if(res.data.status===true){
      console.log('hloo');
         history.push("/mainpage")
+        alert('login successfully')
+      }
+      else{
+        alert('please enter valid username and password')
       }
       // setOpen(false)
       setLogstatus(res)
