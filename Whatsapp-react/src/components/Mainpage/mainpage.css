@@ -34,3 +34,14 @@
     background-repeat: no-repeat;
 
 }
+.message-bottom{
+    background-image:url("/Chatbox.png");
+    height:auto;
+    background-size: cover;
+  width: 100%;
+   text-align: start;
+    
+    background-repeat: no-repeat;
+    margin:120% 0% 0% 0%
+    
+}

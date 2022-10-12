@@ -21,6 +21,8 @@ app.use('/register',addnewdatas)
 const verifylogins=require('./routers/verifylogin')
 app.use('/login',verifylogins)
 
+const createmessagedata=require('./routers/createmessagedata')
+app.use('/textmesg')
 
 app.listen(9000,()=>{
     console.log("server started");
