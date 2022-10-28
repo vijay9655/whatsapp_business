@@ -22,7 +22,9 @@ const verifylogins=require('./routers/verifylogin')
 app.use('/login',verifylogins)
 
 const createmessagedata=require('./routers/createmessagedata')
-app.use('/textmesg')
+app.use('/textmsg',createmessagedata)
+const createimgmessagedata=require('./routers/imagemsg')
+app.use('/imagemsg',createimgmessagedata)
 
 app.listen(9000,()=>{
     console.log("server started");

@@ -1,6 +1,8 @@
 import React,{useState} from 'react'
 import './homepage.css'
-import { Col, Row, Button,Modal,Input,Checkbox, Form} from 'antd';
+import { Col, Row,Modal,Input,Checkbox, Form,Spin} from 'antd';
+import Button from '@mui/material/Button';
+
 import axios from 'axios'
 import 'antd/dist/antd.css';
 import {useHistory} from 'react-router-dom';
@@ -9,6 +11,7 @@ import PhoneInput from 'react-phone-input-2'
 import 'react-phone-input-2/lib/style.css'
 import Home_content from './Home_content';
 
+import Spinloading from '../../SpinLoading';
 
 
 function Home_page() {
@@ -16,8 +19,9 @@ function Home_page() {
   const [sign_up,setSign_up]=useState(false)
   const [sign_in,setSign_in]=useState(false)
   const [showregister,setShowregister]=useState(false)
-  const [Regstatus,setRegstatus]=useState()
+  const [regstatus,setRegstatus]=useState()
   const [logstatus,setLogstatus]=useState()
+  const [blur,setBlur]=useState(false)
   const history=useHistory()
 
  
@@ -72,8 +76,12 @@ function Home_page() {
       console.log(res.data.status);
       if(res.data.status===true){
      console.log('hloo');
+     setBlur(true)
+     alert('login successfully')
+        setInterval(function() {
+          setBlur(true)
         history.push("/mainpage")
-        alert('login successfully')
+        },1000)
       }
       else{
         alert('please enter valid username and password')
@@ -81,7 +89,10 @@ function Home_page() {
       // setOpen(false)
       setLogstatus(res)
 
-    })
+    }).catch(
+      // alert('404 Not Found')
+
+    )
 
 
   };
@@ -90,11 +101,14 @@ function Home_page() {
     console.log('Failed:', errorInfo);
   };
   return (
-    <div style={{height:'100vh'}}>
-        <Row style={{height:'60px',alignItems:'center',background:'pink',alignContent:'center',backgroundImage:"linear-gradient(to right, lightgreen , white)"}}>
+    <div  style={{height:'100vh'}}>
+      <div className={blur===false?null:'contents'}>
+
+        <Row style={{height:'60px',alignItems:'center',alignContent:'center',}}>
       <Col span={6}>
         <Row style={{alignItems:'center',textAlign:'center',cursor:'pointer'}}>
-            <Col  span={20}><a id='anger1' href='/'><img style={{width:'20%'}} src='./whatsapp.png'/><span style={{fontWeight:'900',fontSize:'20px',color:'green'}}>Whatsapp</span></a></Col>
+            <Col  span={20}><a id='anger1' href='/'>
+              <img style={{width:'20%'}} src='./whatsapp.png'/><span style={{fontWeight:'900',fontSize:'20px',color:'green'}}>Whatsapp</span></a></Col>
         </Row>
       </Col>
       <Col style={{paddingLeft:'13%',height:'30px',}} span={18}>
@@ -103,8 +117,8 @@ function Home_page() {
         <Col sm={12} xs={12} md={4} span={4}><a id='anger' href=''>Documents</a></Col>
         <Col sm={12} xs={12} md={4} span={4}><a id='anger' href='/'>Pricing</a></Col>
         <Col sm={12} xs={12} md={4} span={4}><a id='anger' href='/'>Support</a></Col>
-        <Col sm={12} xs={12} md={4} span={4}><Button id='btn' style={{color: "rgb(39, 36, 36)",fontWeight:'900'}} onClick={()=>Login('signin')} type='text'>SignIn</Button></Col>
-        <Col sm={12} xs={12} md={4} span={4}><Button id='btn' style={{color: "rgb(39, 36, 36)",fontWeight:'900'}} onClick={()=>Login('signup')} shape='round' type='danger'>SignUp</Button></Col>
+        <Col sm={12} xs={12} md={4} span={4}><Button id='btn' style={{color: "#035e51",fontWeight:'900'}} onClick={()=>Login('signin')} type='text'>SignIn</Button></Col>
+        <Col sm={12} xs={12} md={4} span={4}><Button id='btn' style={{color: "white",fontWeight:'900',background:'#035e51'}} onClick={()=>Login('signup')} shape='round' type=''>SignUp</Button></Col>
 
         </Row>
       </Col>
@@ -339,9 +353,20 @@ Cancel
           </Col>
         </Row>
       </Modal>
+
     {/* end */}
     <Home_content/>
+
+    <Button onClick={()=>Login('signup')} variant="contained" style={{margin:'3% 0% 0% 17%',padding:'15px',borderRadius:'10%',fontWeight:'900',background:'#035e51',float:'left',fontSize:'15px'}}>Get Started</Button>
+
     </div>
+    <div style={{position:'absolute',width:'100%',margin:'0%',boxShadow:'0 0 0 55'}}>
+      <Spin style={{color:'black',fontSize:'large',fontWeight:900}} size='large' tip='Loading...' spinning={blur} ></Spin>
+    </div>
+    </div>
+    
+
+   
   )
 }
 

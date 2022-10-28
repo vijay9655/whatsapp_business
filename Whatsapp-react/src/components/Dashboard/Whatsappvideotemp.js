@@ -1,12 +1,15 @@
 import React,{useState} from 'react'
 import '../Mainpage/mainpage.css'
-import { Col, Card , Row,Input,Form, Button} from 'antd';
+import { Col, Card,Row,Input, Spin} from 'antd';
 import { useForm, Controller } from "react-hook-form";
 
 import PhoneInput from 'react-phone-input-2'
 import 'react-phone-input-2/lib/style.css'
-function Whatsappvideotemp() {
+function Whatsappvideotemp({value}) {
     const [data, setData] = useState(null);
+    const [spin,setSpin]=useState(true)
+    
+
     const { TextArea } = Input;
     const { handleSubmit, reset, control } = useForm();
     const onLogin=(values)=>{
@@ -14,13 +17,17 @@ function Whatsappvideotemp() {
         console.log(values);
         setData(values)
     }
-   
+   if(value===true){
+    setInterval(function(){setSpin(false)},1000)
+   }
     // const onFinishFailed=(erroe)=>{
 
     // }
   return (
+    
+   <div> {value===spin?<Spin style={{marginTop:'10%',color:'black',fontSize:'large',fontWeight:900}} size='large' tip='Loading...' spinning={spin}><div className='whatsapptemp1'></div></Spin>:
     <div className='whatsapptemp'>
-      <h1 style={{fontWeight:'900',color:"white"}}>  video Message To A Number </h1>
+      <h1 style={{color:"white"}}>  video Message To A Number </h1>
         <div
         >
             <div className='whatsapp-body'>
@@ -102,7 +109,7 @@ Cancel
             </div>
             
             </div>
-            </div>
+            </div>}</div>
   )
 }
 

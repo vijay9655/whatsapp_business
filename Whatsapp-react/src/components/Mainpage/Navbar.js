@@ -1,9 +1,14 @@
-import React from 'react'
+import React,{useState} from 'react'
 import { UserOutlined } from '@ant-design/icons';
-import { Col, Row, Button,Avatar} from 'antd';
+import { Col, Row,Avatar,Modal} from 'antd';
+import Button from '@mui/material/Button';
 import './mainpage.css'
 import 'antd/dist/antd.css';
+
 function Navbar() {
+const [uservisible,setUservisible]=useState(false)
+const  userlogohandle=()=>setUservisible(true)
+const modalcancel=()=>setUservisible(!uservisible)
   return (
     <div>  <Row style={{height:'60px',alignItems:'center',alignContent:'center',backgroundImage:"linear-gradient(to right, lightgreen , white)"}}>
     <Col span={4}>
@@ -19,7 +24,10 @@ function Navbar() {
       <Col sm={12} xs={12} md={4} span={4}><a id='mainanger' href='/'>Support</a></Col>
       <Col sm={12} xs={12} md={8} span={4}>
         {/* <Button id='btn' style={{color: "rgb(39, 36, 36)",fontWeight:'900',padding:'5px 5px 5px 5px'}}  shape='circle' type='text'><img src='./'/></Button> */}
-        <Avatar size={40} icon={<UserOutlined />} />
+        <Avatar style={{cursor:'pointer'}} size={40} onClick={userlogohandle} icon={<UserOutlined />} />
+        <Modal width={250} title="User Details" style={{float:'right',marginTop:'-40px',textAlign:'center',borderRadius:'10px',cursor:'pointer'}} open={uservisible} onCancel={modalcancel}> 
+<Button href='/' variant="contained"  color="error">Logout</Button>
+        </Modal>
         </Col>
       {/* <Col sm={12} xs={12} md={4} span={4}><Button id='btn' style={{color: "rgb(39, 36, 36)",fontWeight:'900'}}  shape='round' type='danger'>SignUp</Button></Col> */}
 

@@ -6,10 +6,13 @@
 @media only screen and (max-width: 325px) { 
 
 }
+.ant-spin-lg .ant-spin-dot i{
+  background-color: black;
+}
 #menubar{
     background-color: black;
     
-    height: 100vh;
+    height: 100%;
     color: white;
     width: 250
 }
@@ -17,9 +20,20 @@
     width:100%;
     /* margin:auto; */
     justify-content:center;
-    background-image: url('/whatsapp2.jpg');
+    background-color: rgb(255, 255, 255);
+    /* background-image: url('/whatsapp2.jpg'); */
     background-size: cover;
     
+    height:100%
+}
+.whatsapptemp1{
+    width:100%;    
+
+    justify-content:center;
+    background-color: rgb(255, 255, 255);
+    /* background-image: url('/whatsapp2.jpg'); */
+    background-size: cover;
+    filter: blur(5px);
     height:100vh
 }
 .whatsapp-body{
@@ -28,11 +42,9 @@
 }
 .whatsappimg{
     background-image:url("/whatsapp4.png");
-   height: 450px;
-   
+    height: 450px;
     background-size: 80%;
     background-repeat: no-repeat;
-
 }
 .message-bottom{
     background-image:url("/Chatbox.png");
@@ -44,4 +56,126 @@
     background-repeat: no-repeat;
     margin:120% 0% 0% 0%
     
+}
+@media only screen and (max-width: 325px) {
+    .message-bottom{
+    background-image:url("/Chatbox.png");
+    height:auto;
+    background-size: cover;
+  width: 100%;
+   text-align: start;
+    
+    background-repeat: no-repeat;
+    margin:120% 0% 0% 0%
+    
+}
+    
+  }
+  @media only screen and (min-width: 375px) {
+    .message-bottom{
+        background-image:url("/Chatbox.png");
+        height:auto;
+        background-size: cover;
+      width: 100%;
+       text-align: start;
+        
+        background-repeat: no-repeat;
+        margin:120% 0% 0% 0%
+        
+    }
+    .whatsappimg{
+        background-image:url("/whatsapp4.png");
+       height:100vh;
+       
+        background-size: 80%;
+        background-repeat: no-repeat;
+    
+    }
+   
+}
+  @media only screen and (min-width: 425px) {
+    .whatsappimg{
+        background-image:url("/whatsapp4.png");
+        height:100vh;
+        background-size: 80%;
+        background-repeat: no-repeat;
+    
+    }
+
+  }
+  @media only screen and (min-width: 768px) {
+    .message-bottom{
+        background-image:url("/Chatbox.png");
+        height:auto;
+        background-size: cover;
+      width: 100%;
+       text-align: start;
+        
+        background-repeat: no-repeat;
+        margin:60% 0% 0% 0%
+        
+    }
+    .whatsappimg{
+        background-image:url("/whatsapp4.png");
+       height:450px;
+       
+        background-size: 80%;
+        background-repeat: no-repeat;
+    
+    }
+   
+   
+   
+  }
+  @media only screen and (min-width: 1048px) {
+   
+    .message-bottom{
+        background-image:url("/Chatbox.png");
+        height:auto;
+        background-size: cover;
+      width: 80%;
+       text-align: start;
+        
+        background-repeat: no-repeat;
+        margin:120% 0% 0% 0%
+        
+    }
+    .whatsappimg{
+    background-image:url("/whatsapp4.png");
+   height:600px;
+   
+    background-size: 80%;
+    background-repeat: no-repeat;
+
+}
+   
+  }
+  @media only screen and (min-width: 1440px) {
+   
+  
+    .message-bottom{
+        background-image:url("/Chatbox.png");
+        height:auto;
+        background-size: cover;
+      width: 100%;
+       text-align: start;
+        
+        background-repeat: no-repeat;
+        margin:125% 0% 0% 0%
+        
+    }
+  }
+  .whatsappimg{
+    background-image:url("/whatsapp4.png");
+   height:701px;
+   
+   /* background-size: cover; */
+    background-size: 80%;
+    background-repeat: no-repeat;
+
+}
+.ant-card-body {
+  box-shadow: 0px 2px 20px 1px;
+  border-radius: 10px;
+  padding: 24px;
 }

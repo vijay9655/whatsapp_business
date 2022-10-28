@@ -1,6 +1,6 @@
 import React,{useState} from 'react'
 import Navbar from './Navbar'
-import { Col, Row,Menu} from 'antd';
+import { Col, Row,Menu,Spin} from 'antd';
 import Whatsapptemplate from '../Dashboard/Whatsapptemplate'
 import 'antd/dist/antd.css';
 import { AppstoreOutlined, MailOutlined, SettingOutlined } from '@ant-design/icons';
@@ -42,7 +42,10 @@ const [toggle,setToggle]=useState('')
     console.log('click ', e);
     setToggle(e.key)
   };
+const onsub=()=>{
+  return <Whatsapptemplate/>
 
+}
   return (
     <div>
       <div>
@@ -67,7 +70,7 @@ const [toggle,setToggle]=useState('')
     />
     </Col>
     <Col sm={21} xs={21} md={21} span={5}>  
-    {toggle==='text'?<Whatsapptemplate/>:toggle==='image'?<Whatsappimagetemp/>:toggle==='video'?<Whatsappvideotemp/>:<Whatsapptemplate/>}
+    {toggle==='text'?<Whatsapptemplate value={true}/>:toggle==='image'?<Whatsappimagetemp value={true}/>:toggle==='video'?<Whatsappvideotemp value={true}/>:null}
     </Col>
   </Row>
         
