@@ -8,9 +8,6 @@ import 'antd/dist/antd.css'
 import PhoneInput from 'react-phone-input-2'
 import 'react-phone-input-2/lib/style.css'
 import axios from 'axios'
-
-
-const {Meta}=Card
 function Whatsappimagetemp({value}) {
     const [data, setData] = useState(
         {
@@ -187,8 +184,6 @@ return {
        
     <Input id='clear3' onChange={clothsamount} placeholder='enter the cloths amount' style={{width:'84%',marginLeft:'8%',borderRadius:'5px'}} />
         </div>
-
-
     </Col>
 </Row>
 <Row style={{width:'80%',margin:'auto',justifyContent:'space-evenly',paddingTop:'7%',alignItems:'center'}}>

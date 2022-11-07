@@ -113,4 +113,4 @@ Cancel
   )
 }
 
-export default Whatsappvideotemp
+export default Whatsappvideotemp;

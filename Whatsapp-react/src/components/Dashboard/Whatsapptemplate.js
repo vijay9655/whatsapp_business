@@ -17,7 +17,7 @@ function whatsapptemplate({value}) {
     const onLogin=(values)=>{
         console.log('starting',values);
         if(values.type==='click'){
-         console.log('hello');
+         console.log('');
         }
         
         else if(values.type !=='click'){
@@ -113,7 +113,7 @@ Send
 </button>
 </Col>
     <Col>
-    <Button  style={{color:'white',backgroundColor:"darkblue",border:'none',fontWeight:'900',borderRadius:'10%',cursor:'pointer'}} type='htmlcancel'>
+    <Button  style={{color:'white',backgroundColor:"darkblue",border:'none',fontWeight:'900',borderRadius:'10%',cursor:'pointer',}} type='htmlcancel'>
 Cancel
 </Button>
 
